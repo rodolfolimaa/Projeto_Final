@@ -45,23 +45,9 @@ Desenvolver uma estação de monitoramento ambiental e inteligente que:
 | RF06   | Armazenar os dados coletados no Cartão SD em intervalos de tempo. |  
 | RF07   | Mostrar o status de armazenamento, se gravou ou não. |  
 | RF08   | Ao pressionar o botão A, a tela deve avançar para tela seguinte. Ao pressionar o botão B, a tela deve voltar sempre para a Tela 1 (status). |  
-| RF09   | Exibir mensagens de alerta na tela OLED quando condições críticas forem detectadas (ex.: risco de geada, fungos, calor excessivo, tendência de chuva). |  
+| RF09   | Exibir mensagens de alerta na tela OLED quando condições críticas forem detectadas. |  
 | RF10   | Enviar os dados por Wi-Fi para o site ThingSpeak. |   
 | RF11  | Definir o intervalo de leitura dos sensores e o modo de gravação dos dados no cartão SD. |  
-
----
-
-## 🚫 Requisitos Não Funcionais (RNF)  
-
-| Código | Requisitos Não Funcionais | Detalhamento |
-|--------|----------------------------|--------------|
-| RNF01  | Interface amigável para o usuário na tela OLED. | Layout simples, alternância clara entre status e valores. Texto legível em ambientes externos (fonte ≥ 8x8 px). |
-| RNF02  | Sensores de alta precisão com tempo de resposta rápido. | Precisão mínima: ±0,5 °C (temperatura), ±3% UR (umidade), ±1 hPa (pressão), ±1 lux (luminosidade). Tempo de resposta < 2s para leitura estável. |
-| RNF03  | Fixação segura dos componentes. | Sensores montados em caixa protetora com vedação contra chuva e poeira (IP54). Conexões firmes com cabos XH e protoboard fixada. |
-| RNF04  | Baixo consumo de energia. | O consumo total ≤ 200 mA em operação contínua, garantindo autonomia mínima de 8h com um powerbank de 5000 mAh |
-| RNF05  | O código deve ser modular. | Separação clara entre camadas (drivers, HAL, aplicação, include). Cada sensor deve possuir módulo independente e reaproveitável. |
-| RNF06 | O software deve ser implementado usando FreeRTOS, multitarefa. | Cada função crítica (coleta de dados, exibição, gravação em SD) deve rodar como tarefa independente, com prioridade definida. Scheduler deve garantir que leituras não atrasem mais que 1s. |
-| RNF07 | Clareza dos alertas exibidos. | Mensagens devem ser curtas (≤ 20 caracteres), exibidas por pelo menos 5 segundos e facilmente interpretáveis pelo agricultor. |
 
 ---
 
@@ -70,9 +56,9 @@ Desenvolver uma estação de monitoramento ambiental e inteligente que:
 | Item | Quantidade | Descrição |
 |------|------------|-----------|
 | Placa BitDogLab com Raspberry Pi Pico W | 1 | Microcontrolador com periféricos integrados (OLED, botões, Wi-Fi) |
-| Sensor de Temperatura e Pressão BMP280 | 1 | Sensor externo conectado via Protoboard |
-| Sensor de Umidade e Temperatura AHT10 | 1 | Sensor externo conectado via Protoboard |
-| Sensor de Luminosidade BH1750 | 1 | Sensor externo conectado via Protoboard |
+| Sensor de Temperatura e Pressão BMP280 | 1 | Sensor externo conectado |
+| Sensor de Umidade e Temperatura AHT10 | 1 | Sensor externo conectado |
+| Sensor de Luminosidade BH1750 | 1 | Sensor externo conectado |
 | Placa para SD Card SPI | 1 | Módulo externo conectado via conector IDC direto |
 | Cabos customizados XH I2C | 1 | Para conexão dos sensores externos à BitDogLab |
 | Botão A | 1 | Avançar as telas do display OLED |
